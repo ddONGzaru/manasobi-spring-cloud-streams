@@ -1,0 +1,3 @@
+rootProject.name = 'manasobi-spring-cloud-streams'
+//include 'onsemiro-core', 'onsemiro-framework', 'onsemiro-initializer'
+include 'sample1'

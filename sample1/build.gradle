@@ -1,0 +1,44 @@
+
+apply plugin: 'maven'
+
+/* _____ querydsl config _____ */
+apply from: 'config-querydsl.gradle'
+
+/* _____ dependencies config _____ */
+apply from: 'dependencies.gradle'
+
+task sourcesJar(type: Jar) {
+	from sourceSets.main.java.srcDirs
+	classifier = "sources"
+}
+
+jar {
+	baseName = 'onsemiro-core'
+	version = JAR_VERSION
+	dependsOn sourcesJar
+}
+
+uploadArchives {
+	repositories {
+		mavenDeployer {
+			repository(url: "${NEXUS_URL}/content/repositories/releases/") {
+				authentication(userName: NEXUS_ID, password: NEXUS_PASSWORD)
+			}
+			pom.groupId = 'io.dat'
+			pom.artifactId = 'onsemiro-core'
+			pom.version = JAR_VERSION
+
+			pom.project {
+				parent {
+					groupId 'org.springframework.boot'
+					artifactId 'spring-boot-starter-parent'
+					version springBootVersion
+				}
+			}
+		}
+	}
+}
+
+artifacts {
+	archives sourcesJar
+}
