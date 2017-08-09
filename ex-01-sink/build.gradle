@@ -2,7 +2,7 @@
 apply plugin: 'maven'
 
 /* _____ querydsl config _____ */
-apply from: 'config-querydsl.gradle'
+//apply from: 'config-querydsl.gradle'
 
 /* _____ dependencies config _____ */
 apply from: 'dependencies.gradle'

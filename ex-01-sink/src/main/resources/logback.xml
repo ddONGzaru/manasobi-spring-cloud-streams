@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+
+    <!-- ALL > TRACE > DEBUG > INFO > WARN > ERROR > OFF -->
+    <root level="WARN">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <logger name="io.manasobi" level="INFO"/>
+
+    <!-- Framework Category -->
+    <logger name="org.springframework" level="INFO" />
+
+    <logger name="org.apache.kafka.clients.producer" level="OFF"/>
+    <logger name="org.apache.kafka.clients.consumer" level="OFF"/>
+    <logger name="org.springframework.kafka.core" level="OFF"/>
+    <logger name="io.plantpulse.AppRunner" level="OFF"/>
+
+</configuration>

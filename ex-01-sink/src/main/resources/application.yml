@@ -1,0 +1,32 @@
+
+server:
+  port: 8092
+
+spring:
+  profiles:
+    active: local
+  cloud.stream:
+    kafka:
+      binder:
+        brokers: 192.168.0.91:9092
+        zkNodes: 192.168.0.91:2181
+        minPartitionCount: 2
+        replicationFactor: 1
+    bindings:
+      input:
+        destination: test3
+        group: hello
+        consumer:
+          partitionCount: 2
+          #headerMode: raw
+
+# ----------------------------------------
+# profile :: local
+# ----------------------------------------
+---
+spring:
+  profiles: local
+  #devtools.livereload.enabled: true
+
+# Logging
+logging.config: classpath:logback.xml
