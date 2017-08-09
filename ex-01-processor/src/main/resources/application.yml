@@ -1,6 +1,6 @@
 
 server:
-  port: 8093
+  port: 8092
 
 spring:
   profiles:
@@ -14,11 +14,16 @@ spring:
         replicationFactor: 1
     bindings:
       input:
-        destination: test4
+        destination: test3
         group: hello
         consumer:
           partitionCount: 2
           #headerMode: raw
+      output:
+        destination: test4
+        content-type: application/json
+        producer:
+          partitionCount: 2
 
 # ----------------------------------------
 # profile :: local
