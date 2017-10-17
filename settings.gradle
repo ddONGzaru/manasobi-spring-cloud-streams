@@ -1,2 +1,2 @@
 rootProject.name = 'manasobi-spring-cloud-streams'
-include 'ex-01-source', 'ex-01-sink', 'ex-01-processor'
+include 'ex-01-source', 'ex-01-sink', 'ex-01-processor', 'double'
